@@ -3,6 +3,6 @@
     public class Candidate : Person
     {
         public long VotesNumber { get; set; }
-        public override PersonType Type { get; set; } = PersonType.Candidate;
+        public override PersonType Type => PersonType.Candidate;
     }
 }

@@ -4,15 +4,10 @@ using Vode.Desktop.ViewModel;
 
 namespace Vode.Desktop.Command
 {
-    public class VoteCommand : AsyncCommandBase
+    public class VoteCommand : AsyncVoteAppCommandBase
     {
-        protected VoteViewModel ViewModel { get; init; }
-        protected IVoteApiClient ApiClient { get; init; }
         public VoteCommand(VoteViewModel viewModel, IVoteApiClient apiClient)
-        {
-            ViewModel = viewModel;
-            ApiClient = apiClient;
-        }
+            : base(viewModel, apiClient) { }        
 
         protected override Task ExecuteAsync(object parameter)
         {
@@ -22,13 +17,10 @@ namespace Vode.Desktop.Command
                 Candidate= ViewModel.SelectedCandidate
             };
 
-            ApiClient.PostVoteAsync(vote)
+            return ApiClient.PostVoteAsync(vote)
                 .ContinueWith(t => { 
                 ViewModel.GetDataCommand.Execute(null);
             });
-
-
-            return Task.CompletedTask;
         }
     }
 }

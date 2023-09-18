@@ -45,14 +45,14 @@ namespace Vode.Desktop.Model
         }
 
 
-        public async Task PostVoterAsync(Voter voter)
+        public Task PostVoterAsync(Voter voter)
         {
-            var candidates = _baseApiHost.AppendPathSegments("api", "voter");
+            return _baseApiHost.AppendPathSegments("api", "voter").PostJsonAsync(voter);
         }
 
-        public async Task PostCandidateAsync(Candidate candidate)
+        public Task PostCandidateAsync(Candidate candidate)
         {
-            var candidates = _baseApiHost.AppendPathSegments("api", "voters");
+            return _baseApiHost.AppendPathSegments("api", "candidate").PostJsonAsync(candidate);
         }
     }
 }

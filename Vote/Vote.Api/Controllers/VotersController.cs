@@ -1,13 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 using Vote.Api.Commands;
 using Vote.Api.Queries;
 using Vote.Model;
 
 namespace Vote.Api.Controllers
 {
-    
+
     [ApiController]
     public class VotersController : ControllerBase
     {
@@ -28,7 +27,7 @@ namespace Vote.Api.Controllers
         }
 
         [Route("api/voter")]
-        [HttpGet]
+        [HttpPost]
         public IActionResult AddVoter([FromBody] Voter voter)
         {
             var query = new CreatePersonCommand { Person = voter };

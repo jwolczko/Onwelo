@@ -33,7 +33,7 @@ namespace Vode.Desktop
         {
             base.OnStartup(e);
             //this
-            Thread.Sleep(60 * 1000);
+            Thread.Sleep(30 * 1000);
 
             this.MainWindow = serviceProvider.GetService<MainWindow>();
             this.MainWindow.DataContext = serviceProvider.GetService<VoteViewModel>();

@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Threading.Tasks;
 using Vode.Desktop.Model;
 using Vode.Desktop.ViewModel;
 
 namespace Vode.Desktop.Command
 {
-    public class GetDataCommand : AsyncCommandBase
+    public class GetDataCommand : AsyncVoteAppCommandBase
     {
-        protected VoteViewModel ViewModel { get; set; }
-        protected IVoteApiClient ApiClient { get; set; }
         public GetDataCommand(VoteViewModel viewModel, IVoteApiClient voteApiClient)
-        {
-            ViewModel = viewModel;
-            ApiClient = voteApiClient;
+            :base(viewModel, voteApiClient)
+        {            
         }
 
 

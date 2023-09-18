@@ -2,7 +2,7 @@
 {
     public class Voter : Person
     {
-        public override PersonType Type { get; set; } = PersonType.Voter;
+        public override PersonType Type => PersonType.Voter;
 
         public string HasVote { get; set; }
     }
