@@ -19,25 +19,22 @@ namespace Vote.Api.Queries
             var allVoters = new List<Voter>();
             try
             {
-                var candidates = _context.Persons
-                    .Where(p => p.Type == Data.Entities.PersonType.Voter)
-                    .Include(p => p.CandidateVots)
-                    .ToList();
+                var voters = _context.Voters.FromSql($"GetVoters").ToList();
 
-                foreach (var candidate in candidates)
+                foreach (var voter in voters)
                 {
                     allVoters.Add(new Voter 
                     { 
-                        Id = candidate.Id, 
-                        FirstName = candidate.FirstName, 
-                        LastName = candidate.LastName,
-                        HasVote = candidate.CandidateVots.Any()? "v": "x"                        
+                        Id = voter.Id, 
+                        FirstName = voter.FirstName, 
+                        LastName = voter.LastName,
+                        HasVote = voter.HasVote? "v": "x"                        
                     });
                 }
 
                 return Task.FromResult(allVoters.AsEnumerable());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return Task.FromResult(new List<Voter>().AsEnumerable());
             }

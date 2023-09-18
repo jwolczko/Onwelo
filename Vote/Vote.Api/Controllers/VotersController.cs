@@ -31,7 +31,7 @@ namespace Vote.Api.Controllers
         [HttpGet]
         public IActionResult AddVoter([FromBody] Voter voter)
         {
-            var query = new CreateVoterCommand { Voter = voter };
+            var query = new CreatePersonCommand { Person = voter };
             var result = _mediator.Send(query);
             return Ok(result);
         }

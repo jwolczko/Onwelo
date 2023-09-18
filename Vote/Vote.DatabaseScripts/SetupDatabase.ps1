@@ -1,1 +1,0 @@
-\.$Env:Temp\..\..\..\.nuget\packages\aliasql\2.0.0\tools\AliaSQL.exe Create '(localdb)\MSSQLLocalDB' VoteDb2 ./scripts  

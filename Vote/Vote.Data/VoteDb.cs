@@ -3,13 +3,16 @@ using Vote.Data.Entities;
 
 namespace Vote.Data
 {
-    public class VoteDb: DbContext
+    public class VoteDb : DbContext
     {
         public VoteDb(DbContextOptions options) : base(options)
-        {          
+        {
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Entities.Vote> Votes { get; set; }
+        
+        public DbSet<Voter> Voters { get; set; }
+        public DbSet<Candidate> Candidates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -19,9 +19,7 @@ namespace Vote.Api.Queries
             try
             {
                 var result = new List<Candidate>();
-                var candidates = _context.Persons
-                    .Where(p => p.Type == Data.Entities.PersonType.Candidate)
-                    .Include(p => p.VoterVots)
+                var candidates = _context.Candidates.FromSql($"GetCandidates")
                     .ToList();
 
                 foreach (var candidate in candidates)
@@ -31,7 +29,7 @@ namespace Vote.Api.Queries
                         Id = candidate.Id, 
                         FirstName = candidate.FirstName, 
                         LastName = candidate.LastName,
-                        VotesNumber = candidate.VoterVots.Count,
+                        VotesNumber = candidate.Votes,
                     });
                 }
 

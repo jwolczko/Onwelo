@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Vote.Data;
 
 namespace Vote.Api.Commands
