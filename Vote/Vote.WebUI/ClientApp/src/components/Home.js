@@ -1,22 +1,10 @@
-import { Button } from 'bootstrap';
 import React, { Component } from 'react';
-import Dropdown from 'react-dropdown';
 import { Voters } from './Voters'
 import { Candidates } from './Candidates'
 import { Vote } from './Vote'
+import AddPersonFrom from './AddPersonForm'
 import './components.css'
 import 'react-dropdown/style.css';
-
-const options = [
-    'one', 'two', 'three'
-];
-
-const options2 = [
-    'Duda', 'Morawiecki', 'Jebany Kaczyñski!'
-];
-
-const defaultOption = options[0];
-const defaultOption2 = options2[0];
 
 export class Home extends Component {
     static displayName = 'Voting app';
@@ -53,10 +41,27 @@ export class Home extends Component {
                 <div>
                     <h1>Voting app</h1>
                     <div className="component">
-                        <Voters items={this.state.voters} addVoterFn={this.addPerson} />
+                        <table>
+                            <tr>
+                                <td><h3>Voters</h3></td>
+                                <td className="content_buttons">
+                                    <button className="header" onClick={this.addVoter}>+</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <Voters items={this.state.voters} />
                     </div>
                     <div className="component">
-                        <Candidates items={this.state.candidates} addCandidateFn={this.addPerson} />
+                        <table>
+                            <tr>
+                                <td><h3>Candidates</h3></td>
+                                <td className="content_buttons">
+                                    <button className="header" onClick={this.addCandidate}>+</button>
+                                </td>
+                            </tr>                           
+                        </table>
+                        <Candidates items={this.state.candidates} />
                     </div>
                     
                 </div>

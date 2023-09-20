@@ -21,5 +21,36 @@ button.header{
     align-self:stretch
 }
 
+td.vote_table_choise{
+    width:400px
+}
+td.vote_table_submit {
+    width: 100px;
+    text-align: right;
+}
+
+td.content_buttons {
+    text-align:right;
+}
+
 th.button_header {
 }
+
+table.vote_table{
+
+}
+
+tr.vote_table_submit{
+
+}
+
+td.label_content {
+    width: 200px;
+}
+
+td.input_content {
+    align-content:space-between;  
+    text-align:right;
+}
+
+

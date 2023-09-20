@@ -16,11 +16,6 @@ export class Voters extends Component {
                         <th>Id</th>
                         <th>Name</th>
                         <th>Has voted</th>
-                        <th className="button_header">
-                            <button onClick={this.props.addVoterFn} className="header">
-                                +
-                            </button>
-                        </th>
 
                     </tr>
                 </thead>
@@ -29,8 +24,7 @@ export class Voters extends Component {
                         <tr key={voter.id}>
                             <td>{voter.id}</td>
                             <td>{voter.name}</td>
-                            <td>{voter.hasVote}</td>
-                            <td></td>
+                            <td>{voter.hasVote}</td>                            
                         </tr>
                     )}
                 </tbody>
@@ -40,8 +34,7 @@ export class Voters extends Component {
 
     render() {
         return (
-            <div>
-            <h3>Voters</h3>
+            <div>            
                 {Voters.renderVotersTable(this.props.items)}
             </div>
         );

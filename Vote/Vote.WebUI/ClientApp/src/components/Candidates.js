@@ -15,11 +15,6 @@ export class Candidates extends Component {
                         <th>Id</th>
                         <th>Name</th>
                         <th>Votes</th>
-                        <th className="button_header">
-                            <button onClick={this.props.addCandidateFn} className="header">
-                                +
-                            </button>
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +22,7 @@ export class Candidates extends Component {
                         <tr key={candidate.id}>
                             <td>{candidate.id}</td>
                             <td>{candidate.name}</td>
-                            <d> {candidate.votesNumber}</d>
-                            <td></td>
+                            <td>{candidate.votesNumber}</td>
                         </tr>
                     )}
                 </tbody>
@@ -39,7 +33,6 @@ export class Candidates extends Component {
     render() {
         return (
             <div>
-                <h3>Candidates</h3>
                 {Candidates.renderCandidatesTable(this.props.items)}
             </div>
         );
